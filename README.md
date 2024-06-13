@@ -24,7 +24,7 @@ x <br />
 
 <h2>The Set-Up</h2>
 
-Within Azure, I created two VMs within the same virtual network to ensure that they are able to communicate with each other. One VM will have Windows 10 Pro while the other uses Ubuntu. The Windows VM will connect to the other via the command line/PowerShell. 
+x 
 
 <h2>Actions and Observations</h2>
 
@@ -40,7 +40,7 @@ Using Remote Desktop Connection, I connect to the Windows VM using its public IP
 <img src="https://i.imgur.com/2JQawfN.png" height="80%" width="80%" alt="Azure Networking Steps"/>
 </p>
 <p>
-Within Wireshark, I filtered for ICMP (Internet Control Message Protocol) traffic and opened PowerShell to execute a command called ping. Ping utilizes ICMP, which is used by devices in a network to communicate problems within data transmition. I used ping to see if I can communicate with the Ubuntu VM using its private IP address and with google.com. Afterwards, I used a perpetual ping to the Ubuntu VM in order to see how network security groups work. I executed the perpetual ping with the command: ping -t (ip address).
+x
 </p>
 <br />
 
@@ -64,7 +64,7 @@ Upon returning to the Windows VM, I notice that the ICMP traffic is blocked now 
 <img src="https://i.imgur.com/fDtuLo9.png" height="80%" width="80%" alt="Azure Networking Steps"/>
 </p>
 <p>
-Next, I chose to examine SSH traffic. I logged in to the Ubuntu server via PowerShell with the ssh command. With Wireshark, I filtered the traffic with tcp.port == 22. While logged into the Ubuntu server, my session is logged in Wireshark with each command I use.
+x
 </p>
 <br />
 
@@ -72,7 +72,7 @@ Next, I chose to examine SSH traffic. I logged in to the Ubuntu server via Power
 <img src="https://i.imgur.com/mptFClI.png" height="80%" width="80%" alt="Azure Networking Steps"/>
 </p>
 <p>
-After examining SSH traffic, I exited the Ubuntu server in order to filter for DHCP traffic. To see it in action, I decided to attempt to issue a new IP address from my VM. The command ipconfig /renew will attempt to issue the new IP address and will temporarily disconnect me for a few seconds. After reconnecting, the resulting traffic is shown in Wireshark.
+x
 </p>
 <br />
 
@@ -80,7 +80,7 @@ After examining SSH traffic, I exited the Ubuntu server in order to filter for D
 <img src="https://i.imgur.com/gtiupfH.png" height="80%" width="80%" alt="Azure Networking Steps"/>
 </p>
 <p>
-To observe DNS traffic, I used the filter udp.port == 53 and the command nslookup. I wanted to see the results that are from looking up google.com and disney.com, two very popular sites. 
+x
 </p>
 <br />
 
@@ -88,7 +88,7 @@ To observe DNS traffic, I used the filter udp.port == 53 and the command nslooku
 <img src="https://i.imgur.com/N7voXYU.png" height="80%" width="80%" alt="Azure Networking Steps"/>
 </p>
 <p>
-To finish my lab, I decided to observe RDP traffic. The filter for Wireshark is tcp.port == 3389. There is non-stop traffic because RDP is constantly showing me a live stream from one computer to another (in my case, my computer accessing the VM that is hosted on Azure) and thus traffic is always transmitted. 
+x
 </p>
 <br />
 
